@@ -36,6 +36,10 @@ export default new Vuex.Store({
         async getData ({commit}) {
             const resp = await axios.get('https://jsonplaceholder.typicode.com/posts')
             commit('fullData', resp.data)
+        },
+        async getEspecificData ({commit}, id) {
+            const resp = await axios.get(`https://jsonplaceholder.typicode.com/posts/${id}`)
+            commit('fullData', resp.data)
         }
     }
 })
